@@ -1,0 +1,40 @@
+#LOKALNI SERVER I BAZA,PHP INSTALLER
+XAMPP - https://www.apachefriends.org/
+Composer - https://getcomposer.org/
+
+cd .\laravel-api\
+\laravel-api code . - otvaranje editora
+
+#KREIRANJE PROJEKTA
+composer global require laravel/installer - instalira laravel i okruzenje za rad
+laravel new laravel-api - kreira projekat
+
+#KREIRANJE MODELA
+
+php artisan make:model Customer --all
+
+#POKRETANJE APLIKACIJE
+
+php artisan serve
+
+#KORACI:
+
+1.KREIRANJE MODELA
+2.IZMENA MIGRACIJE ZA KREIRANJE TABELE PO MODELU
+3.DEFINISANJE MODELA PO KREIRANIM TABELAMA
+3.POPUNJAVANJE FACTORIES
+4.SEEDERS -> Popunjavanje baze mokovanim podacima
+
+#MIGRACIJA BAZE
+
+php artisan migrate:fresh --seed
+
+#KREIRANJE API-ja
+
+-instaliranje api ako nije u projektu -> Laravel 11+
+
+php artisan install:api
+
+-kreirate folder API u kom se nalaze verzije API-ja sto nam omogucava da imam razne verzije u slucaju promena
+-izmena Kontrolera
+-izmena Ruta
