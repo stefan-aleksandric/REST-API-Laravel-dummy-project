@@ -38,3 +38,7 @@ php artisan install:api
 -kreirate folder API u kom se nalaze verzije API-ja sto nam omogucava da imam razne verzije u slucaju promena
 -izmena Kontrolera
 -izmena Ruta
+
+#Transformisanje resura u Laravelu kako bi sakrili podaci u JSON response-u
+-dodajemo verzije jer utice na usere
+php artisan make:resource V1\CustomerResource
