@@ -10,13 +10,15 @@ use App\Http\Requests\UpdateInvoiceRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\InvoiceCollection;
 use App\Http\Resources\V1\InvoiceResource;
+use Illuminate\Support\Arr;
+use App\Http\Requests\V1\BulkStoreInvoiceRequest;
 
 class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(BulkStoreInvoiceRequest $request)
     {
         $filter=new InvoicesFilter();
         $queryItems=$filter->transform($request);//[['column','operator','value']]
@@ -43,6 +45,14 @@ class InvoiceController extends Controller
     public function store(StoreInvoiceRequest $request)
     {
         //
+    }
+
+    public function bulkStore(BulkStoreInvoiceRequest $request){
+        $bulk = collect($request->all())->map(function($arr,$key){
+            return Arr::except($arr,['customerId','billedDate','paidDate']);
+        });
+
+        Invoice::insert($bulk->toArray());
     }
 
     /**

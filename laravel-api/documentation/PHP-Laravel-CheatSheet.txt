@@ -42,3 +42,12 @@ php artisan install:api
 #Transformisanje resura u Laravelu kako bi sakrili podaci u JSON response-u
 -dodajemo verzije jer utice na usere
 php artisan make:resource V1\CustomerResource
+
+
+#Tokens
+
+{
+  "admin": "1|X0hMtAJ0vEESyJik7ol4Squ3R1h6jsp7hazvtD3Eebae528e",
+  "update": "2|pFlRpO0sbcV12w9nCFS9VfWxuJJQqxoP3XwC4A8241b535a7",
+  "basic": "3|R0mzmiFEuE1BAWNc9mQdYEyREINzumdyBfq8nbdze75a9aba"
+}
